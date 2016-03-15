@@ -9,6 +9,8 @@ import java.util.List;
  * Created by Nikita on 15.03.2016.
  */
 public class Information {
+    public static final String CODE = "CODE";
+    public static final String PLACE = "PLACE";
     protected String sTime;
     protected String sPlace;
     protected String sCode;
