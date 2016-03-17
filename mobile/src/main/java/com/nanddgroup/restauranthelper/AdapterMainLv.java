@@ -28,21 +28,27 @@ public class AdapterMainLv extends ArrayAdapter<Information> {
     public View getView(final int position, View convertView, ViewGroup parent) {
         View rootView = null;
         if (convertView == null){
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater =
+                    (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rootView = inflater.inflate(R.layout.custom_row, parent, false);
         }
         else {
             rootView = convertView;
         }
-        rootView.setTag(String.valueOf(data.get(position).sCode));
 
         TextView tvTime = (TextView) rootView.findViewById(R.id.tvTime);
         tvTime.setText(data.get(position).sTime);
         TextView tvPlace = (TextView) rootView.findViewById(R.id.tvPlace);
         tvPlace.setText(data.get(position).sPlace);
-        final TextView tvCode = (TextView) rootView.findViewById(R.id.tvCode);
+        TextView tvCode = (TextView) rootView.findViewById(R.id.tvCode);
         tvCode.setText(data.get(position).sCode);
         CardView cardView = (CardView) rootView.findViewById(R.id.card_view);
+        if (tvCode.getText().toString().equals("Taxi_Code")){
+            rootView.setTag(String.valueOf(data.get(position).sCode));
+        }
+        if (tvCode.getText().toString().equals("Cutlery_Code")){
+            rootView.setTag(String.valueOf(data.get(position).sCode));
+        }
         return rootView;
     }
 

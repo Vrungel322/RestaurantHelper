@@ -34,12 +34,14 @@ public class TaxiCallActivity extends AppCompatActivity {
         tvPlace_taxiActivity.setText(intent.getExtras().getString(Information.PLACE));
     }
 
-    @OnClick({R.id.ivCall, R.id.ivCall1, R.id.ivCall2, R.id.ivCall3, R.id.ivCall4, R.id.ivCall5, R.id.ivCall6})
+    @OnClick({R.id.ivCall, R.id.ivCall1, R.id.ivCall2,
+            R.id.ivCall3, R.id.ivCall4, R.id.ivCall5, R.id.ivCall6})
     public void CallTaxiNumber() {
         Intent intent = new Intent(Intent.ACTION_CALL);
 
         intent.setData(Uri.parse("tel:" + "123"));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         startActivity(intent);
@@ -47,7 +49,8 @@ public class TaxiCallActivity extends AppCompatActivity {
 
     @OnClick(R.id.bDone)
     public void onDone(){
-        Toast.makeText(getApplicationContext(), "onItem Clicked: " + positionToDelete, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),
+                "onItem Clicked: " + positionToDelete, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent();
         intent.putExtra("to_Delete", positionToDelete);
         setResult(RESULT_OK, intent);

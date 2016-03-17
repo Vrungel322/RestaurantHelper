@@ -11,7 +11,7 @@ import java.util.List;
 public class Information {
     public static final String sCODE = "CODE";
     public static final int iCODE_taxi = 24;
-    public static final String PLACE = "PLACE";
+    public static final String PLACE = "PLACE_OF_CALL";
     public static final int TAXI_CODE = 1;
     public static final int DONE = 1;
     protected String sTime;

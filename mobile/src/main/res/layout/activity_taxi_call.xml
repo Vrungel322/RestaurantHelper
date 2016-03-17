@@ -30,31 +30,34 @@
                 android:src="@drawable/taxi"
                 app:layout_collapseMode="parallax" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tvPlace_taxiActivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:text="Place"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#ffffff"
                     android:textSize="64dp"
-                    android:visibility="gone"/>
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true" />
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
+                    android:layout_gravity="right"
                     android:text="Call Taxi"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#ffffff"
-                    android:textSize="64dp" />
-            </LinearLayout>
+                    android:textSize="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 

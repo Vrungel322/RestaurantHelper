@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -27,18 +28,26 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
-        listHelper = new ListHelper(lvNotifications, dataList, adapterMainLv, getApplicationContext());
+
+        listHelper = new ListHelper(lvNotifications, dataList, adapterMainLv,
+                getApplicationContext());
         listHelper.init();
         listHelper.getLvNotifications().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (view.getTag().equals("Taxi_Code")) {
-                    Intent intent = new Intent(getApplicationContext(), TaxiCallActivity.class);
-                    intent.putExtra("POSITION", position);
-                    startActivityForResult(intent, Information.TAXI_CODE);
-                }
+            if (view.getTag().equals("Taxi_Code")) {
+                Intent intent = new Intent(getApplicationContext(), TaxiCallActivity.class);
+                intent.putExtra("POSITION", position);
+                String sp = ((TextView)view.findViewById(R.id.tvPlace)).getText().toString();
+                Toast.makeText(getApplicationContext(), "sp : " + sp, Toast.LENGTH_SHORT).show();
+                intent.putExtra(Information.PLACE, sp);
+                startActivityForResult(intent, Information.TAXI_CODE);
+            }
+            if (view.getTag().equals("Cutlery_Code")) {
+
+                Toast.makeText(getApplicationContext(), "Cutlery_Code ", Toast.LENGTH_SHORT).show();
+            }
             }
         });
 

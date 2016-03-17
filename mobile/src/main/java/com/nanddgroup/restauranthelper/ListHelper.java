@@ -16,7 +16,8 @@ public class ListHelper {
     private List<Information> dataList;
     private Context context;
 
-    public ListHelper(ListView lvNotifications, List<Information> dataList, AdapterMainLv adapterMainLv, Context context) {
+    public ListHelper(ListView lvNotifications, List<Information> dataList,
+                      AdapterMainLv adapterMainLv, Context context) {
         this.lvNotifications = lvNotifications;
         this.dataList = dataList;
         this.adapterMainLv = adapterMainLv;
