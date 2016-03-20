@@ -1,4 +1,4 @@
-package com.nanddgroup.restauranthelper;
+package com.nanddgroup.restauranthelper.Activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -10,17 +10,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.nanddgroup.restauranthelper.Data.Information;
+import com.nanddgroup.restauranthelper.R;
+import com.nanddgroup.restauranthelper.Utils.ListHelper;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class TaxiCallActivity extends AppCompatActivity {
-    @Bind(R.id.tvPlace_taxiActivity)TextView tvPlace_taxiActivity;
-    @Bind(R.id.ivCall) ImageView ivCall;
-    @Bind(R.id.bDone) Button bDone;
-    public static int positionToDelete;
+    @Bind(R.id.tvPlace_taxiActivity)
+    TextView tvPlace_taxiActivity;
+    @Bind(R.id.ivCall)
+    ImageView ivCall;
+    @Bind(R.id.bDone)
+    Button bDone;
+    public int positionToDelete;
     private ListHelper listHelper;
 
 
@@ -39,6 +45,7 @@ public class TaxiCallActivity extends AppCompatActivity {
     public void CallTaxiNumber() {
         Intent intent = new Intent(Intent.ACTION_CALL);
 
+        //set real numbers of taxi
         intent.setData(Uri.parse("tel:" + "123"));
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -48,12 +55,18 @@ public class TaxiCallActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.bDone)
-    public void onDone(){
-        Toast.makeText(getApplicationContext(),
-                "onItem Clicked: " + positionToDelete, Toast.LENGTH_SHORT).show();
+    public void onDone() {
         Intent intent = new Intent();
         intent.putExtra("to_Delete", positionToDelete);
         setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("to_Delete", positionToDelete);
+        setResult(RESULT_CANCELED, intent);
         finish();
     }
 }

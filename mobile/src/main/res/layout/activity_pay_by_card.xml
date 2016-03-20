@@ -9,7 +9,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="192dp">
+        android:layout_height="380dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/taxi"
+                android:src="@drawable/card"
                 app:layout_collapseMode="parallax" />
 
             <RelativeLayout
@@ -35,11 +35,11 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tvPlace_taxiActivity"
+                    android:id="@+id/tvPlace_payByCardActivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="left"
                     android:text="Place"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -50,10 +50,10 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tvPlace_payByCardActivity"
                     android:layout_gravity="right"
-                    android:text="Call Taxi"
+                    android:text="Pay by card"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#ffffff"
                     android:textSize="32dp" />
@@ -74,16 +74,38 @@
             app:cardCornerRadius="2dp"
             app:cardPreventCornerOverlap="false">
 
-            <include layout="@layout/taxi_numbers" />
-
-            <Button
-                android:id="@+id/bDone"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="68dp"
-                android:layout_gravity="bottom"
-                android:layout_margin="8dp"
-                android:background="@color/colorPrimary"
-                android:text="Done" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_card_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/card_view_number_card"
+                        android:layout_marginTop="122dp"
+                        android:ems="16"
+                        android:hint="Enter card number"
+                        android:inputType="numberDecimal"
+                        android:minEms="4" />
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/bDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="8dp"
+                    android:background="@color/colorPrimary"
+                    android:text="Done" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 

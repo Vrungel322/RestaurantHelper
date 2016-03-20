@@ -1,4 +1,4 @@
-package com.nanddgroup.restauranthelper;
+package com.nanddgroup.restauranthelper.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -6,7 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nanddgroup.restauranthelper.Data.Information;
+import com.nanddgroup.restauranthelper.R;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,27 +31,37 @@ public class AdapterMainLv extends ArrayAdapter<Information> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View rootView = null;
-        if (convertView == null){
+        if (convertView == null) {
             LayoutInflater inflater =
                     (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rootView = inflater.inflate(R.layout.custom_row, parent, false);
-        }
-        else {
+        } else {
             rootView = convertView;
         }
 
         TextView tvTime = (TextView) rootView.findViewById(R.id.tvTime);
-        tvTime.setText(data.get(position).sTime);
+        tvTime.setText(data.get(position).getsTime());
         TextView tvPlace = (TextView) rootView.findViewById(R.id.tvPlace);
-        tvPlace.setText(data.get(position).sPlace);
+        tvPlace.setText(data.get(position).getsPlace());
         TextView tvCode = (TextView) rootView.findViewById(R.id.tvCode);
-        tvCode.setText(data.get(position).sCode);
+        tvCode.setText(data.get(position).getTag());
+        ImageView ivLogo = (ImageView) rootView.findViewById(R.id.ivLogo);
+        ivLogo.setImageResource(data.get(position).getsCode());
         CardView cardView = (CardView) rootView.findViewById(R.id.card_view);
-        if (tvCode.getText().toString().equals("Taxi_Code")){
-            rootView.setTag(String.valueOf(data.get(position).sCode));
+        if (tvCode.getText().toString().equals("Taxi_Code")) {
+            rootView.setTag(String.valueOf(data.get(position).getTag()));
         }
-        if (tvCode.getText().toString().equals("Cutlery_Code")){
-            rootView.setTag(String.valueOf(data.get(position).sCode));
+        if (tvCode.getText().toString().equals("Cutlery_Code")) {
+            rootView.setTag(String.valueOf(data.get(position).getTag()));
+        }
+        if (tvCode.getText().toString().equals("PAY_CARD_CODE")) {
+            rootView.setTag(String.valueOf(data.get(position).getTag()));
+        }
+        if (tvCode.getText().toString().equals("REDUCT_ORDER")) {
+            rootView.setTag(String.valueOf(data.get(position).getTag()));
+        }
+        if (tvCode.getText().toString().equals("CASH_PAY")) {
+            rootView.setTag(String.valueOf(data.get(position).getTag()));
         }
         return rootView;
     }

@@ -9,13 +9,12 @@
     android:paddingRight="8dp"
     android:paddingTop="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.nanddgroup.restauranthelper.MainActivity"
+    tools:context=".Activities.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <ListView
+        android:id="@+id/lvNotifications"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvNotifications">
-    </ListView>
+        android:layout_height="wrap_content"></ListView>
 
 </RelativeLayout>
