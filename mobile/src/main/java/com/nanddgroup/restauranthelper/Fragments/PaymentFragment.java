@@ -54,6 +54,7 @@ public class PaymentFragment extends Fragment {
                 bCreditCard.setVisibility(View.VISIBLE);
                 bCash.setVisibility(View.GONE);
                 tvGiveCheck.setVisibility(View.VISIBLE);
+                input_card_number_fragment.setVisibility(View.GONE);
             }
         });
         tvGiveCheck.setOnClickListener(new View.OnClickListener() {
