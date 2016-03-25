@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +41,9 @@ public class AdapterFoodItem extends ArrayAdapter<FoodItem> {
         tvNameOfItemInOrder.setText(lFoodItem.get(position).getOrderName());
         TextView tvPrice = (TextView) rootView.findViewById(R.id.tvPrice);
         tvPrice.setText(String.valueOf(lFoodItem.get(position).getPrice()));
+
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_top_to_bottom);
+        rootView.startAnimation(animation);
 
         return rootView;
     }

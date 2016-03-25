@@ -30,7 +30,7 @@ public class NotificationHelper {
 
         notificationIntent.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
         contentIntent = PendingIntent.getActivity(context,
-                0, notificationIntent, PendingIntent.FLAG_NO_CREATE);
+                0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         builder = new Notification.Builder(context);
         builder.setContentIntent(contentIntent)
                 .setSmallIcon(res)

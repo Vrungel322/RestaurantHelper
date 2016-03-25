@@ -5,6 +5,8 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,6 +40,11 @@ public class AdapterMainLv extends ArrayAdapter<Information> {
         } else {
             rootView = convertView;
         }
+//        //
+//        LinearLayout ll0 = (LinearLayout) rootView.findViewById(R.id.linearLayout0);
+//        LinearLayout ll1 = (LinearLayout) rootView.findViewById(R.id.linearLayout1);
+//        LinearLayout ll2 = (LinearLayout) rootView.findViewById(R.id.linearLayout2);
+//        //
 
         TextView tvTime = (TextView) rootView.findViewById(R.id.tvTime);
         tvTime.setText(data.get(position).getsTime());
@@ -63,6 +70,8 @@ public class AdapterMainLv extends ArrayAdapter<Information> {
         if (tvCode.getText().toString().equals("CASH_PAY")) {
             rootView.setTag(String.valueOf(data.get(position).getTag()));
         }
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_top_to_bottom);
+        rootView.startAnimation(animation);
         return rootView;
     }
 

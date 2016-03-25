@@ -7,6 +7,12 @@
     android:fitsSystemWindows="true"
     tools:context=".Activities.MainActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/iv"
+        android:background="@drawable/animation2"/>
+
     <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton

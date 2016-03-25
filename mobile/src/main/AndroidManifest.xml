@@ -12,8 +12,20 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Activities.SplashScreen_FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splash_screen__fullscreen"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name"
@@ -21,15 +33,13 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Activities.TaxiCallActivity" />
         <activity android:name=".Activities.CutleryActivity" />
         <activity android:name=".Activities.PayByCardActivity" />
         <activity android:name=".Activities.ReductOrderActivity" />
-        <activity android:name=".Activities.CashPayActivity"></activity>
+        <activity android:name=".Activities.CashPayActivity" />
     </application>
 
 </manifest>

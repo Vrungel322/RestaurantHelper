@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nanddgroup.restauranthelper.Data.Information;
 import com.nanddgroup.restauranthelper.R;
+import com.nanddgroup.restauranthelper.Utils.AnimationUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,6 +25,8 @@ public class CashPayActivity extends AppCompatActivity {
     TextView tvTimeCheque;
     @Bind(R.id.bCashPay)
     Button bCashPay;
+    @Bind(R.id.ivCBackground)
+    ImageView ivC;
     private String pleceOfOrder;
     private int positionToDelete;
 
@@ -37,6 +41,9 @@ public class CashPayActivity extends AppCompatActivity {
         tvPlace_cashActivity.setText(pleceOfOrder);
         tvTimeCheque.setText(String.valueOf(new SimpleDateFormat(" MM-dd \n HH:mm")
                 .format(Calendar.getInstance().getTimeInMillis())));
+
+        AnimationUtils animU = new AnimationUtils(ivC);
+        animU.init();
     }
 
     @OnClick(R.id.bCashPay)

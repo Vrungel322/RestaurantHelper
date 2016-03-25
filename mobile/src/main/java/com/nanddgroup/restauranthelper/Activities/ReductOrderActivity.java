@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nanddgroup.restauranthelper.Data.FoodItem;
@@ -12,6 +13,7 @@ import com.nanddgroup.restauranthelper.Data.Information;
 import com.nanddgroup.restauranthelper.Fragments.FoodListFragment;
 import com.nanddgroup.restauranthelper.Fragments.PaymentFragment;
 import com.nanddgroup.restauranthelper.R;
+import com.nanddgroup.restauranthelper.Utils.AnimationUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +26,8 @@ public class ReductOrderActivity extends AppCompatActivity {
     TextView tvExactlyPrice;
     @Bind(R.id.bRelease)
     Button bRelease;
+    @Bind(R.id.ivROBackground)
+    ImageView ivROB;
     private int positionToDelete;
     private String pleceOfOrder;
     private FoodListFragment lfFood;
@@ -44,6 +48,8 @@ public class ReductOrderActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.flTypeOfFood, lfFood);
         fragmentTransaction.commit();
         tvExactlyPrice.setText(String.valueOf(FoodItem.getTotalPrice()));
+        AnimationUtils animU = new AnimationUtils(ivROB);
+        animU.init();
 
     }
 

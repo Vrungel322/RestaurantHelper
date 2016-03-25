@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.nanddgroup.restauranthelper.Activities.CashPayActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivCBackground"
+        android:background="@drawable/animation2"/>
+
     <TextView
         android:id="@+id/tvPlace_cashActivity"
         android:layout_width="wrap_content"
